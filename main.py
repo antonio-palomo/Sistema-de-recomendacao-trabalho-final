@@ -1,9 +1,10 @@
 from fastapi import FastAPI, HTTPException
-from app.recommender import RecommenderSystem
-from app.schemas import (
+from recommender import RecommenderSystem
+from schemas import (
     RecommendationRequest, RecommendationResponse,
     UserPreferences, NewItem
 )
+
 
 app = FastAPI(title="Sistema de Recomendação")
 
