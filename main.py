@@ -5,18 +5,16 @@ from schemas import (
     UserPreferences, NewItem
 )
 
-
 app = FastAPI(title="Sistema de Recomendação")
 
 recommender = RecommenderSystem()
 
 @app.post("/recommend", response_model=RecommendationResponse)
 def get_recommendations(request: RecommendationRequest):
-    user_id = request.user_id
-    recommendations = recommender.recommend(user_id, n=request.n)
+    recommendations = recommender.recommend(request.user_id, n=request.n)
     if not recommendations:
         raise HTTPException(status_code=404, detail="Usuário não encontrado ou sem recomendações.")
-    return RecommendationResponse(user_id=user_id, recommendations=recommendations)
+    return RecommendationResponse(user_id=request.user_id, recommendations=recommendations)
 
 @app.post("/user/{user_id}")
 def add_user(user_id: int):
