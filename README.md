@@ -72,7 +72,7 @@ Atualiza os itens curtidos por um usuário.
 ### 1. Clonar o projeto
 
 ```bash
-git clone https://github.com/seu-usuario/sistema-recomendacao.git
+git clone https://github.com/antonio-palomo/Sistema-de-recomendacao-trabalho-final
 cd sistema-recomendacao
 ```
 
