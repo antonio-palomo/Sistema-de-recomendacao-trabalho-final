@@ -1,9 +1,9 @@
 from pydantic import BaseModel
-from typing import List, Optional
+from typing import List, Dict
 
 class RecommendationRequest(BaseModel):
     user_id: int
-    n: int = 5
+    n: int = 5  # Quantidade de recomendações
 
 class RecommendationResponse(BaseModel):
     user_id: int
@@ -15,4 +15,4 @@ class UserPreferences(BaseModel):
 
 class NewItem(BaseModel):
     item_id: int
-    features: List[float]
+    features: Dict[str, float]  # Ou o formato que sua feature tiver
