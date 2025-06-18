@@ -17,8 +17,9 @@ class RecommenderSystem:
 
         liked_centroid = liked_features.mean(axis=0).reshape(1, -1)
 
-        candidates = [i for i in self.store.get_all_items() if i not in liked_items]
+        candidates = [i for i in self.store.get_all_items() if i not in liked_items and self.store.get_item_features(i)]
         candidate_features = np.array([self.store.get_item_features(i) for i in candidates])
+
         if candidate_features.size == 0:
             return []
 
